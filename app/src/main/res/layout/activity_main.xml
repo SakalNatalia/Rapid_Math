@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background1"
+        android:scaleType="centerCrop"
+        tools:context=".YourActivity">
+        <!-- Your layout content goes here -->
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="46dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginEnd="49dp"
+            android:layout_marginBottom="540dp"
+            app:srcCompat="@drawable/rapidmmath"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="108dp"
+            android:layout_marginEnd="111dp"
+            android:layout_marginBottom="320dp"
+            app:srcCompat="@drawable/start"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="288dp"
+            android:layout_marginBottom="7dp"
+            app:srcCompat="@drawable/highscores"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="288dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="7dp"
+            app:srcCompat="@drawable/help"
+            android:background="@android:color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="68dp"
+            android:layout_marginEnd="69dp"
+            android:layout_marginBottom="425dp"
+            android:background="@android:color/transparent"
+            android:scaleType="center"
+            app:srcCompat="@drawable/login"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="107dp"
+            android:layout_marginEnd="112dp"
+            android:layout_marginBottom="226dp"
+            app:srcCompat="@drawable/options"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
