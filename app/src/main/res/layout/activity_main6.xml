@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity6">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background1"
+        android:scaleType="centerCrop"
+        tools:context=".YourActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-49dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="46dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginEnd="49dp"
+            android:layout_marginBottom="540dp"
+            app:srcCompat="@drawable/rapidmmath"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="68dp"
+            android:layout_marginEnd="69dp"
+            android:layout_marginBottom="425dp"
+            android:background="@android:color/transparent"
+            android:scaleType="center"
+            app:srcCompat="@drawable/login" />
+
+        <ImageView
+            android:id="@+id/imageView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="228dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="236dp"
+            app:srcCompat="@drawable/ectangle8" />
+
+        <ImageButton
+            android:id="@+id/imageButton10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="242dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginBottom="460dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/x" />
+
+        <ImageView
+            android:id="@+id/imageView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="251dp"
+            android:layout_marginEnd="141dp"
+            android:layout_marginBottom="443dp"
+            app:srcCompat="@drawable/options"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="321dp"
+            android:layout_marginEnd="165dp"
+            android:layout_marginBottom="383dp" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="392dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginBottom="312dp" />
+
+        <ImageView
+            android:id="@+id/imageView28"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="391dp"
+            android:layout_marginEnd="229dp"
+            android:layout_marginBottom="308dp"
+            app:srcCompat="@drawable/brand_awareness" />
+
+        <ImageView
+            android:id="@+id/imageView29"
+            android:layout_width="13dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="322dp"
+            android:layout_marginEnd="234dp"
+            android:layout_marginBottom="378dp"
+            app:srcCompat="@drawable/music_note" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="288dp"
+            android:layout_marginBottom="7dp"
+            app:srcCompat="@drawable/highscores"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="288dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="7dp"
+            app:srcCompat="@drawable/help"
+            android:background="@android:color/transparent"/>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

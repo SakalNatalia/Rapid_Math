@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity8">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background1"
+        android:scaleType="centerCrop"
+        tools:context=".YourActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-49dp">
+
+        <ImageView
+            android:id="@+id/imageView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="239dp"
+            android:layout_marginEnd="43dp"
+            android:layout_marginBottom="318dp"
+            app:srcCompat="@drawable/teglalap" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="278dp"
+            android:layout_marginEnd="112dp"
+            android:layout_marginBottom="407dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="352dp"
+            android:layout_marginEnd="121dp"
+            android:layout_marginBottom="333dp"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="91dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="62dp"
+            android:layout_marginEnd="258dp"
+            android:layout_marginBottom="681dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="369dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="299dp"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="#9CD55B"
+            />
+
+        <ImageView
+            android:id="@+id/imageView33"
+            android:layout_width="49dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="355dp"
+            android:layout_marginBottom="676dp"
+            app:srcCompat="@drawable/umer" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="338dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="660dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/pause"
+            app:backgroundTint="#EBF1E3"/>
+
+        <ImageView
+            android:id="@+id/imageView34"
+            android:layout_width="208dp"
+            android:layout_height="73dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="101dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginBottom="527dp"
+            app:srcCompat="@drawable/scoreeee" />
+
+        <ImageView
+            android:id="@+id/imageView35"
+            android:layout_width="36dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="139dp"
+            android:layout_marginTop="148dp"
+            android:layout_marginEnd="236dp"
+            android:layout_marginBottom="543dp"
+            app:srcCompat="@drawable/pehar" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="85dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="183dp"
+            android:layout_marginTop="154dp"
+            android:layout_marginEnd="143dp"
+            android:layout_marginBottom="545dp"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="137dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="241dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/skip" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
