@@ -86,7 +86,7 @@
             android:layout_marginBottom="126dp" />
 
         <ImageButton
-            android:id="@+id/imageButton9"
+            android:id="@+id/xbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
