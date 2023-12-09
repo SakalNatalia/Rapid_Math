@@ -28,7 +28,7 @@
             android:layout_marginTop="239dp"
             android:layout_marginEnd="43dp"
             android:layout_marginBottom="318dp"
-            app:srcCompat="@drawable/teglalap" />
+            app:srcCompat="@drawable/playyy" />
 
         <TextView
             android:id="@+id/textView"
@@ -182,7 +182,7 @@
             android:layout_marginEnd="140dp"
             android:layout_marginBottom="241dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/skip" />
+            app:srcCompat="@drawable/skipp" />
 
     </RelativeLayout>
 
