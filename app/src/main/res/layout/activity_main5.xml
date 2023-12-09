@@ -91,9 +91,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="55dp"
-            android:layout_marginBottom="615dp"
+            android:layout_marginEnd="51dp"
+            android:layout_marginBottom="603dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/x" />
+            app:srcCompat="@drawable/xx" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

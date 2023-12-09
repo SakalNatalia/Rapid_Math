@@ -138,10 +138,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="53dp"
-            android:layout_marginBottom="585dp"
+            android:layout_marginEnd="51dp"
+            android:layout_marginBottom="578dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/x" />
+            app:srcCompat="@drawable/xx" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

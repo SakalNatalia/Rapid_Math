@@ -73,7 +73,7 @@
             android:layout_marginEnd="104dp"
             android:layout_marginBottom="460dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/x" />
+            app:srcCompat="@drawable/xx" />
 
         <ImageView
             android:id="@+id/imageView27"
@@ -83,13 +83,12 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="132dp"
-            android:layout_marginTop="251dp"
-            android:layout_marginEnd="141dp"
-            android:layout_marginBottom="443dp"
-            app:srcCompat="@drawable/options"
             android:layout_centerHorizontal="true"
-            />
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="266dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="428dp"
+            app:srcCompat="@drawable/options" />
 
         <Switch
             android:id="@+id/switch1"
@@ -101,9 +100,23 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="158dp"
-            android:layout_marginTop="321dp"
+            android:layout_marginTop="331dp"
             android:layout_marginEnd="165dp"
-            android:layout_marginBottom="383dp" />
+            android:layout_marginBottom="373dp" />
+
+        <ImageView
+            android:id="@+id/imageView29"
+            android:layout_width="31dp"
+            android:layout_height="43dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="321dp"
+            android:layout_marginEnd="226dp"
+            android:layout_marginBottom="367dp"
+            app:srcCompat="@drawable/sound2" />
 
         <Switch
             android:id="@+id/switch2"
@@ -114,38 +127,24 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="156dp"
-            android:layout_marginTop="392dp"
-            android:layout_marginEnd="167dp"
-            android:layout_marginBottom="312dp" />
+            android:layout_marginStart="157dp"
+            android:layout_marginTop="407dp"
+            android:layout_marginEnd="166dp"
+            android:layout_marginBottom="297dp" />
 
         <ImageView
             android:id="@+id/imageView28"
-            android:layout_width="24dp"
+            android:layout_width="36dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="158dp"
-            android:layout_marginTop="391dp"
+            android:layout_marginStart="146dp"
+            android:layout_marginTop="399dp"
             android:layout_marginEnd="229dp"
-            android:layout_marginBottom="308dp"
-            app:srcCompat="@drawable/brand_awareness" />
-
-        <ImageView
-            android:id="@+id/imageView29"
-            android:layout_width="13dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="164dp"
-            android:layout_marginTop="322dp"
-            android:layout_marginEnd="234dp"
-            android:layout_marginBottom="378dp"
-            app:srcCompat="@drawable/music_note" />
+            android:layout_marginBottom="287dp"
+            app:srcCompat="@drawable/mus2" />
 
         <ImageButton
             android:id="@+id/imageButton2"

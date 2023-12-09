@@ -38,12 +38,12 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="63dp"
-            android:layout_marginTop="118dp"
+            android:layout_marginTop="131dp"
             android:layout_marginEnd="62dp"
-            android:layout_marginBottom="586dp"
-            app:srcCompat="@drawable/createyouraccount"
-            android:layout_centerHorizontal="true"/>
+            android:layout_marginBottom="573dp"
+            app:srcCompat="@drawable/createyouraccount" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -54,9 +54,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="61dp"
-            android:layout_marginTop="174dp"
+            android:layout_marginTop="183dp"
             android:layout_marginEnd="251dp"
-            android:layout_marginBottom="536dp"
+            android:layout_marginBottom="527dp"
             app:srcCompat="@drawable/roup2" />
 
         <EditText
@@ -170,9 +170,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="53dp"
-            android:layout_marginBottom="618dp"
+            android:layout_marginEnd="49dp"
+            android:layout_marginBottom="608dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/x" />
+            app:srcCompat="@drawable/xx" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

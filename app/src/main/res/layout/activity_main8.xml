@@ -111,7 +111,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginEnd="355dp"
             android:layout_marginBottom="676dp"
-            app:srcCompat="@drawable/umer" />
+            app:srcCompat="@drawable/clocck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
