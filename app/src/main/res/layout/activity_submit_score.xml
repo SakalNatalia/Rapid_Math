@@ -6,4 +6,132 @@
     android:layout_height="match_parent"
     tools:context=".SubmitScore">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:scaleType="centerCrop"
+        tools:context=".YourActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-49dp">
+
+        <ImageView
+            android:id="@+id/SubmitYourScoreRectangle"
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="61dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="221dp"
+            app:srcCompat="@drawable/ScoreSubmittedRectangle" />
+
+        <ImageView
+            android:id="@+id/Trophy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="145dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="432dp"
+            app:srcCompat="@drawable/Trophy" />
+
+        <ImageView
+            android:id="@+id/SubmitYourScoreCim"
+            android:layout_width="221dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="101dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="510dp"
+            app:srcCompat="@drawable/SubmitYourScoreCim" />
+
+        <ImageView
+            android:id="@+id/Score512Rectangle"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="114dp"
+            android:layout_marginEnd="107dp"
+            android:layout_marginBottom="413dp"
+            app:srcCompat="@drawable/Score512Rectangle" />
+
+        <ImageView
+            android:id="@+id/Score512"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="205dp"
+            android:layout_marginEnd="152dp"
+            android:layout_marginBottom="444dp"
+            app:srcCompat="@drawable/Score512" />
+
+        <ImageView
+            android:id="@+id/EnterYourNameRectangle"
+            android:layout_width="224dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="98dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="334dp"
+            app:srcCompat="@drawable/EnterYourNameRectangle" />
+
+        <ImageView
+            android:id="@+id/EnterYourNameText"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="124dp"
+            android:layout_marginBottom="347dp"
+            app:srcCompat="@drawable/EnterYourNameText" />
+
+        <ImageView
+            android:id="@+id/SubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="142dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="267dp"
+            app:srcCompat="@drawable/SubmitButton" />
+
+        <ImageView
+            android:id="@+id/SubmitText"
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="178dp"
+            android:layout_marginEnd="169dp"
+            android:layout_marginBottom="282dp"
+            app:srcCompat="@drawable/SubmitText" />
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
