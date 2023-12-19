@@ -26,7 +26,7 @@
             android:layout_marginStart="61dp"
             android:layout_marginEnd="46dp"
             android:layout_marginBottom="221dp"
-            app:srcCompat="@drawable/ScoreSubmittedRectangle" />
+            app:srcCompat="@drawable/submityourscorerectangle" />
 
         <ImageView
             android:id="@+id/Trophy"
@@ -39,7 +39,7 @@
             android:layout_marginStart="145dp"
             android:layout_marginEnd="200dp"
             android:layout_marginBottom="432dp"
-            app:srcCompat="@drawable/Trophy" />
+            app:srcCompat="@drawable/trophy" />
 
         <ImageView
             android:id="@+id/SubmitYourScoreCim"
@@ -52,7 +52,7 @@
             android:layout_marginStart="101dp"
             android:layout_marginEnd="88dp"
             android:layout_marginBottom="510dp"
-            app:srcCompat="@drawable/SubmitYourScoreCim" />
+            app:srcCompat="@drawable/submityourscorecim" />
 
         <ImageView
             android:id="@+id/Score512Rectangle"
@@ -65,7 +65,7 @@
             android:layout_marginStart="114dp"
             android:layout_marginEnd="107dp"
             android:layout_marginBottom="413dp"
-            app:srcCompat="@drawable/Score512Rectangle" />
+            app:srcCompat="@drawable/scoreablak2" />
 
         <ImageView
             android:id="@+id/Score512"
@@ -78,7 +78,7 @@
             android:layout_marginStart="205dp"
             android:layout_marginEnd="152dp"
             android:layout_marginBottom="444dp"
-            app:srcCompat="@drawable/Score512" />
+            app:srcCompat="@drawable/" />
 
         <ImageView
             android:id="@+id/EnterYourNameRectangle"
@@ -91,7 +91,7 @@
             android:layout_marginStart="98dp"
             android:layout_marginEnd="89dp"
             android:layout_marginBottom="334dp"
-            app:srcCompat="@drawable/EnterYourNameRectangle" />
+            app:srcCompat="@drawable/enteryournamegomb" />
 
         <ImageView
             android:id="@+id/EnterYourNameText"
@@ -104,7 +104,7 @@
             android:layout_marginStart="130dp"
             android:layout_marginEnd="124dp"
             android:layout_marginBottom="347dp"
-            app:srcCompat="@drawable/EnterYourNameText" />
+            app:srcCompat="@drawable/enteryournametext" />
 
         <ImageView
             android:id="@+id/SubmitButton"
@@ -117,7 +117,7 @@
             android:layout_marginStart="142dp"
             android:layout_marginEnd="130dp"
             android:layout_marginBottom="267dp"
-            app:srcCompat="@drawable/SubmitButton" />
+            app:srcCompat="@drawable/submitgomb2" />
 
         <ImageView
             android:id="@+id/SubmitText"
@@ -130,7 +130,7 @@
             android:layout_marginStart="178dp"
             android:layout_marginEnd="169dp"
             android:layout_marginBottom="282dp"
-            app:srcCompat="@drawable/SubmitText" />
+            app:srcCompat="@drawable/submittext2" />
 
     </RelativeLayout>
 
