@@ -26,7 +26,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginEnd="35dp"
             android:layout_marginBottom="187dp"
-            app:srcCompat="@drawable/ScoreSubmittedRectangle" />
+            app:srcCompat="@drawable/scoresubmittedrectangle" />
 
         <ImageView
             android:id="@+id/ScoreSubmittedCim"
@@ -39,7 +39,7 @@
             android:layout_marginStart="81dp"
             android:layout_marginEnd="74dp"
             android:layout_marginBottom="510dp"
-            app:srcCompat="@drawable/ScoreSubmittedCim" />
+            app:srcCompat="@drawable/scoresubmittedcim" />
 
         <ImageView
             android:id="@+id/YourScoreHasBeenText"
@@ -52,7 +52,7 @@
             android:layout_marginStart="78dp"
             android:layout_marginEnd="77dp"
             android:layout_marginBottom="393dp"
-            app:srcCompat="@drawable/YourScoreHasBeenText" />
+            app:srcCompat="@drawable/yourscoretext" />
 
         <ImageView
             android:id="@+id/ViewLeaderboardButton"
@@ -65,7 +65,7 @@
             android:layout_marginStart="110dp"
             android:layout_marginEnd="109dp"
             android:layout_marginBottom="307dp"
-            app:srcCompat="@drawable/ViewLeaderBoardButton" />
+            app:srcCompat="@drawable/viewleaderboardgomb" />
 
         <ImageView
             android:id="@+id/ViewLeaderboardText"
@@ -78,7 +78,7 @@
             android:layout_marginStart="122dp"
             android:layout_marginEnd="123dp"
             android:layout_marginBottom="328dp"
-            app:srcCompat="@drawable/ViewLeaderboardText" />
+            app:srcCompat="@drawable/viewleaderboardtext" />
 
         <ImageView
             android:id="@+id/GoBackToMainMenuButton"
@@ -91,7 +91,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginEnd="97dp"
             android:layout_marginBottom="246dp"
-            app:srcCompat="@drawable/GoBackToMainMenuButton" />
+            app:srcCompat="@drawable/gobacktomainmenugomb2" />
 
         <ImageView
             android:id="@+id/GoBackToMainMenuText"
@@ -104,7 +104,7 @@
             android:layout_marginStart="122dp"
             android:layout_marginEnd="123dp"
             android:layout_marginBottom="268dp"
-            app:srcCompat="@drawable/GoBackToMainMenuText" />
+            app:srcCompat="@drawable/gobacktomainmenutext2" />
 
     </RelativeLayout>
 
