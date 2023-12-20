@@ -67,8 +67,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView37"
         app:layout_constraintTop_toTopOf="@+id/imageView37"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/Trophy" />
+        app:layout_constraintVertical_bias="1.0"/>
+<!--        app:srcCompat="@drawable/Trophy" />-->
 
     <TextView
         android:id="@+id/textView4"
@@ -109,12 +109,13 @@
         android:layout_width="43dp"
         android:layout_height="49dp"
         android:layout_marginBottom="112dp"
-        android:background="trasparent"
         app:layout_constraintBottom_toBottomOf="@+id/imageView37"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toEndOf="@+id/textClock2"
-        app:srcCompat="@drawable/pause" />
+        app:srcCompat="@drawable/pause"/>
+<!--        android:background="trasparent"-->
+
 
     <EditText
         android:id="@+id/editTextText2"

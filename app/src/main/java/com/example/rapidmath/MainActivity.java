@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        loginbutton= (ImageButton) findViewById(R.id.login);
-        loginbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity3();
-            }
-        });
+        //loginbutton= (ImageButton) findViewById(R.id.login);
+        //loginbutton.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View v) {
+                //openActivity3();
+            //}
+        //});
 
 
 
