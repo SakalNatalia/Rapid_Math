@@ -3,11 +3,15 @@ package com.example.rapidmath;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
+
+    //hangok es zene hozzaadasa a jatekhoz
+    MediaPlayer player;
 
     private ImageButton playbutton;
     private ImageButton optionsbutton;
@@ -86,4 +90,15 @@ public class MainActivity extends AppCompatActivity {
         Intent optionsintent=new Intent(this,MainActivity6.class);
         startActivity(optionsintent);
     }
+
+    //zene elinditasa MainActivity (Main Menu) elkezdesekor
+    public void playMusic(View v){
+        /*if (player==null){
+            player = MediaPlayer.create(this, R.raw.song);
+        }
+
+        player.start();*/
+    }
+
+
 }
