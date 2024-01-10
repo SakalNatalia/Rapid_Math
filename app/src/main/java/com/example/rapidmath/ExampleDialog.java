@@ -4,24 +4,24 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
-import android.content.DialogInterface;
-//import android.support.v7.app.AppCompatDialogFragment;
-/*
+import androidx.appcompat.app.AppCompatDialogFragment;
+
+
 public class ExampleDialog extends AppCompatDialogFragment {
     private ExampleDialogListener listener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Attention!")
-                .setMessage("Do you want to increase the counter by 1?")
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+        builder.setTitle("Paused game!")
+                .setMessage("Do you want to quit the current level?")
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
                 })
-                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         listener.onYesClicked();
@@ -30,7 +30,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
         return builder.create();
     }
 
-    public interface ExampleDialogListener {
+   public interface ExampleDialogListener {
         void onYesClicked();
     }
 
@@ -45,4 +45,4 @@ public class ExampleDialog extends AppCompatDialogFragment {
                     + "must implement ExampleDialogListener");
         }
     }
-}*/
+}

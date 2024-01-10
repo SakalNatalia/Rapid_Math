@@ -22,9 +22,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity8 extends AppCompatActivity {
+public class MainActivity8 extends AppCompatActivity implements ExampleDialog.ExampleDialogListener{
 
-    //tesztkent a PauseGomb megnyomasakor dobjon at a Pause Activity-re
+    //a PauseGomb
     private ImageButton pauseButton;
     private String feladat;
 
@@ -34,17 +34,21 @@ public class MainActivity8 extends AppCompatActivity {
         setContentView(R.layout.activity_main8);
         fetchDataFromServer();
 
-        //pause gomb deklaralasa
+        //Pause gomb deklaralasa
         pauseButton = (ImageButton) findViewById(R.id.floatingActionButton);
 
-        //dobjon at a Pause Activity-re openPauseActivity-vel
+        //Jelenitse meg a dialog-ot, amellyel a MainActivity-re (fomenure) mehetunk at
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPauseActivity();
+                //NEM HASZNALT -> openPauseActivity();
+                //Dialog megjelenitese
+                openDialog();
             }
         });
     }
+
+    /*----------------------------------------------------------------------------------------------*/
     public void fetchDataFromServer() {
         String url = "https://a5f2-46-40-10-216.ngrok-free.app/agilis_web/database.php";
 
@@ -76,11 +80,30 @@ public class MainActivity8 extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-    //fuggveny, hogy atdobjon a Pause Activity-re
+    /*----------------------------------------------------------------------------------------------*/
+
+    /*//NEM HASZNALT!
     public void openPauseActivity(){
         Intent pauseintent=new Intent(this,Pause.class);
         startActivity(pauseintent);
+    }*/
+
+    //Jelenitse meg a dialog-ot
+    public void openDialog(){
+        ExampleDialog dialog = new ExampleDialog();
+        dialog.show(getSupportFragmentManager(), "example dialog");
+
     }
+
+    //Ha Yes-t nyomunk a Dialog-ban, akkor dobjon at minket a fomenure
+    @Override
+    public void onYesClicked(){
+        Intent pauseintent=new Intent(this,MainActivity.class);
+        startActivity(pauseintent);
+
+    }
+
+    /*----------------------------------------------------------------------------------------------*/
 
 
 
