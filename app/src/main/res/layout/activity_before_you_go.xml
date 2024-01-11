@@ -54,7 +54,7 @@
             android:layout_marginBottom="408dp"
             app:srcCompat="@drawable/doyouwanttotext" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/YesButton"
             android:layout_width="191dp"
             android:layout_height="56dp"
@@ -80,7 +80,7 @@
             android:layout_marginBottom="318dp"
             app:srcCompat="@drawable/yestext" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/NoButton"
             android:layout_width="213dp"
             android:layout_height="57dp"

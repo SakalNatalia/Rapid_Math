@@ -42,7 +42,7 @@
             android:layout_marginBottom="441dp"
             app:srcCompat="@drawable/levelfailedcim" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/TryAgainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_marginBottom="408dp"
             app:srcCompat="@drawable/tryagaintext" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/SubmitYourScoreButton"
             android:layout_width="213dp"
             android:layout_height="57dp"

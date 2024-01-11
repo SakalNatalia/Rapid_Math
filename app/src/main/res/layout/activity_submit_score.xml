@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-49dp">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/SubmitYourScoreRectangle"
             android:layout_width="304dp"
             android:layout_height="wrap_content"

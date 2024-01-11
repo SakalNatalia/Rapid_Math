@@ -103,6 +103,9 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             }
         });
     }
+
+    /*----------------------------------------------------------------------------------------------*/
+
     public void skipTask(View view) {
         // Generate a new task immediately
         generateTask();

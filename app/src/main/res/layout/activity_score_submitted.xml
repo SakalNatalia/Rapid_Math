@@ -54,7 +54,7 @@
             android:layout_marginBottom="393dp"
             app:srcCompat="@drawable/yourscoretext" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/ViewLeaderboardButton"
             android:layout_width="191dp"
             android:layout_height="56dp"
@@ -80,7 +80,7 @@
             android:layout_marginBottom="328dp"
             app:srcCompat="@drawable/viewleaderboardtext" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/GoBackToMainMenuButton"
             android:layout_width="213dp"
             android:layout_height="57dp"

@@ -80,7 +80,7 @@
             android:layout_marginBottom="441dp"
             app:srcCompat="@drawable/bonustext" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/GoToLevelButton"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
@@ -106,7 +106,7 @@
             android:layout_marginBottom="354dp"
             app:srcCompat="@drawable/gotolevel2" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/QuitGameAtCurrentLevelButton"
             android:layout_width="172dp"
             android:layout_height="wrap_content"
