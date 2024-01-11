@@ -45,6 +45,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
     private static final long TASK_TIME_MILLIS = 60000; // Initial time for each task in milliseconds (60 seconds)
     private TextView timerTextView;
     private CountDownTimer taskCountDownTimer;
+    private int remainingSkips = 2;
 
     //a PauseGomb
     private ImageButton pauseButton;
@@ -99,8 +100,6 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
 
         /*----------------------------------------------------------------------------------------------*/
 
-
-
         fetchDataFromServer();
 
         taskTextView = findViewById(R.id.tasktext);
@@ -123,20 +122,9 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         // Initialize the Handler
         handler = new Handler();
         score = 0;
+        generateTask();
 
         // Create a Runnable to generate the task every 60 seconds
-        taskGeneratorRunnable = new Runnable() {
-            @Override
-            public void run() {
-                generateTask();
-
-                // Schedule the next task generation after 60 seconds
-                handler.postDelayed(this, 60000);
-            }
-        };
-
-        // Start the automatic task generation
-        handler.post(taskGeneratorRunnable);
 
         answerEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -149,6 +137,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
                 // Check the answer only when the length of entered text equals the length of the correct answer
                 if (charSequence.length() == (String.valueOf(operand1 + operand2)).length()) {
                     checkAnswer();
+                    generateTask();
                 }
             }
 
@@ -212,12 +201,22 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         finish(); // Optional: Finish the current activity to prevent going back to it
     }
 
-
     public void skipTask(View view) {
-        // Generate a new task immediately
-        generateTask();
         playSound();
+        // Check if there are remaining skips
+        if (remainingSkips > 0) {
+            // Decrement the remaining skips
+            remainingSkips--;
+
+            // Generate a new task immediately
+            generateTask();
+        } else {
+            // Optionally, show a message or perform some action when the skip limit is reached
+            // For example, you can display a Toast message
+            Toast.makeText(this, "Skip limit reached", Toast.LENGTH_SHORT).show();
+        }
     }
+
     private void generateTask() {
         // Generate a random addition task with two numbers between 1 and 10
         Random random = new Random();

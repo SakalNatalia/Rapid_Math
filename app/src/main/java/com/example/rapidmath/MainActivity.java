@@ -111,17 +111,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*----------------------------------------------------------------------------------------------*/
-        //loginbutton= (ImageButton) findViewById(R.id.login);
-        //loginbutton.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v) {
-                //openActivity3();
-            //}
-        //});
-
-        /*----------------------------------------------------------------------------------------------*/
-
     }
     public void openActivity8(){
         Intent playintent=new Intent(this,MainActivity8.class);
