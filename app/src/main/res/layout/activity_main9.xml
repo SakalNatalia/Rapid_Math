@@ -55,6 +55,21 @@
         app:srcCompat="@drawable/scoreeee" />
 
     <ImageView
+        android:id="@+id/imageView36"
+        android:layout_width="36dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pehar" />
+
+    <ImageView
         android:id="@+id/imageView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,14 +111,6 @@
         app:srcCompat="@drawable/clocck"
         tools:layout_editor_absoluteX="5dp" />
 
-    <TextClock
-        android:id="@+id/textClock2"
-        android:layout_width="76dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView37"
-        tools:layout_editor_absoluteX="53dp" />
-
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="43dp"
@@ -111,9 +118,7 @@
         android:layout_marginBottom="112dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView37"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.933"
-        app:layout_constraintStart_toEndOf="@+id/textClock2"
-        app:srcCompat="@drawable/pause"/>
+        app:srcCompat="@drawable/pause" />
 <!--        android:background="trasparent"-->
 
 
@@ -136,5 +141,18 @@
         app:layout_constraintStart_toStartOf="@+id/imageView30"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/imageView37"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toEndOf="@+id/imageView39"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
