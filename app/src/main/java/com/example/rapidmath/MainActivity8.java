@@ -10,19 +10,32 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Random;
+
 public class MainActivity8 extends AppCompatActivity implements ExampleDialog.ExampleDialogListener{
+    private TextView taskTextView;
+    private EditText answerEditText;
+    private TextView scoreTextView;
+    private Handler handler;
+    private Runnable taskGeneratorRunnable;
+    private int score;
+    private int operand1;
+    private int operand2;
 
     //a PauseGomb
     private ImageButton pauseButton;
@@ -33,6 +46,49 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main8);
         fetchDataFromServer();
+
+        taskTextView = findViewById(R.id.tasktext);
+        answerEditText = findViewById(R.id.answer);
+        scoreTextView = findViewById(R.id.score);
+
+        // Initialize the Handler
+        handler = new Handler();
+        score = 0;
+
+        // Create a Runnable to generate the task every 60 seconds
+        taskGeneratorRunnable = new Runnable() {
+            @Override
+            public void run() {
+                generateTask();
+
+                // Schedule the next task generation after 60 seconds
+                handler.postDelayed(this, 60000);
+            }
+        };
+
+        // Start the automatic task generation
+        handler.post(taskGeneratorRunnable);
+
+        answerEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // Not needed in this case
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // Check the answer only when the length of entered text equals the length of the correct answer
+                if (charSequence.length() == (String.valueOf(operand1 + operand2)).length()) {
+                    checkAnswer();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // Not needed in this case
+            }
+        });
+
 
         //Pause gomb deklaralasa
         pauseButton = (ImageButton) findViewById(R.id.floatingActionButton);
@@ -47,6 +103,62 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             }
         });
     }
+    public void skipTask(View view) {
+        // Generate a new task immediately
+        generateTask();
+    }
+    private void generateTask() {
+        // Generate a random addition task with two numbers between 1 and 10
+        Random random = new Random();
+        operand1 = random.nextInt(10) + 1;
+        operand2 = random.nextInt(10) + 1;
+
+        // Display the task in the TextView
+        String task = operand1 + " + " + operand2;
+        taskTextView.setText(task);
+    }
+
+    private void checkAnswer() {
+        // Check if the user's answer is correct
+        String userAnswerString = answerEditText.getText().toString().trim();
+
+        if (!userAnswerString.isEmpty()) {
+            int userAnswer;
+
+            try {
+                userAnswer = Integer.parseInt(userAnswerString);
+            } catch (NumberFormatException exception) {
+                // Handle the case where the input is not a valid integer
+                // You can display an error message or take appropriate action
+                System.err.println("Input is not a valid integer");
+                return; // Exit the method if the input is not valid
+            }
+
+            // Check the answer and update the score
+            if (userAnswer == (operand1 + operand2)) {
+                score += 10;
+            } else {
+                score -= 5;
+            }
+
+            // Display the updated score
+            scoreTextView.setText("Score: " + score);
+
+            // Generate a new task immediately
+            generateTask();
+
+            // Clear the answer EditText
+            answerEditText.setText("");
+        }
+    }
+
+    // Don't forget to stop the handler when the activity is destroyed
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacks(taskGeneratorRunnable);
+    }
+
 
     /*----------------------------------------------------------------------------------------------*/
     public void fetchDataFromServer() {

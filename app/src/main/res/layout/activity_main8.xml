@@ -31,7 +31,7 @@
             app:srcCompat="@drawable/tablaa" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tasktext"
             android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
@@ -50,7 +50,7 @@
             android:textSize="34sp" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/answer"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -142,7 +142,7 @@
             app:srcCompat="@drawable/scoreeee" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/score"
             android:layout_width="85dp"
             android:layout_height="32dp"
             android:layout_alignParentStart="true"
@@ -154,7 +154,7 @@
             android:layout_marginEnd="142dp"
             android:layout_marginBottom="567dp"
             android:text="TextView"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:textSize="20sp" />
 
         <ImageView
@@ -172,7 +172,7 @@
             app:srcCompat="@drawable/pehar" />
 
         <ImageButton
-            android:id="@+id/imageButton12"
+            android:id="@+id/skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -183,7 +183,8 @@
             android:layout_marginEnd="140dp"
             android:layout_marginBottom="241dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/skipp" />
+            app:srcCompat="@drawable/skipp"
+            android:onClick="skipTask"/>
 
     </RelativeLayout>
 
