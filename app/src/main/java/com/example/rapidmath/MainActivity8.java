@@ -24,7 +24,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import android.os.CountDownTimer;
 import java.util.Random;
 
 public class MainActivity8 extends AppCompatActivity implements ExampleDialog.ExampleDialogListener{
@@ -36,6 +36,10 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
     private int score;
     private int operand1;
     private int operand2;
+    private long timeRemainingMillis; // Remaining time for each task in milliseconds
+    private static final long TASK_TIME_MILLIS = 60000; // Initial time for each task in milliseconds (60 seconds)
+    private TextView timerTextView;
+    private CountDownTimer taskCountDownTimer;
 
     //a PauseGomb
     private ImageButton pauseButton;
@@ -50,6 +54,19 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         taskTextView = findViewById(R.id.tasktext);
         answerEditText = findViewById(R.id.answer);
         scoreTextView = findViewById(R.id.score);
+        pauseButton = findViewById(R.id.floatingActionButton);
+        timerTextView = findViewById(R.id.timer);
+
+        // Initialize the timer
+        timeRemainingMillis = TASK_TIME_MILLIS;
+        startTaskCountdown();
+
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+            }
+        });
 
         // Initialize the Handler
         handler = new Handler();
@@ -105,6 +122,41 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
     }
 
     /*----------------------------------------------------------------------------------------------*/
+
+    private void startTaskCountdown() {
+        taskCountDownTimer = new CountDownTimer(timeRemainingMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeRemainingMillis = millisUntilFinished;
+                updateTimerUI();
+            }
+
+            @Override
+            public void onFinish() {
+                handleTaskEnd();
+            }
+        }.start();
+    }
+
+    private void updateTimerUI() {
+        // Update the TextView to display the remaining time
+        long secondsRemaining = timeRemainingMillis / 1000;
+        timerTextView.setText("Remaining Time: " + secondsRemaining + "s");
+    }
+
+    private void handleTaskEnd() {
+        // Check if taskCountDownTimer is not null before canceling
+        if (taskCountDownTimer != null) {
+            taskCountDownTimer.cancel();
+            taskCountDownTimer = null; // Set to null to indicate the timer is stopped
+        }
+
+
+        Intent intent = new Intent(MainActivity8.this, LevelFailed.class);
+        startActivity(intent);
+        finish(); // Optional: Finish the current activity to prevent going back to it
+    }
+
 
     public void skipTask(View view) {
         // Generate a new task immediately
