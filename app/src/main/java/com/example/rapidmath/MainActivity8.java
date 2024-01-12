@@ -11,6 +11,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -46,8 +47,8 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
     private TextView timerTextView;
     private CountDownTimer taskCountDownTimer;
     private int remainingSkips = 2;
+    private int completedTasks = 0;
 
-    //a PauseGomb
     private ImageButton pauseButton;
     private String feladat;
 
@@ -58,6 +59,8 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
     private SoundPool soundPool;
     private int sound1, sound2;
     //private int sound1, sound2, sound3, sound4, sound5, sound6;
+    private static final String PREF_CURRENT_LEVEL = "current_level";
+    private int currentLevel=1;
 
 
 
@@ -69,6 +72,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.levelmusictest1);
         //Zene elinditasa
         mediaPlayer.start();
+
 
         /*----------------------------------------------------------------------------------------------*/
 
@@ -99,7 +103,6 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
 
 
         /*----------------------------------------------------------------------------------------------*/
-
         fetchDataFromServer();
 
         taskTextView = findViewById(R.id.tasktext);
@@ -131,22 +134,19 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // Not needed in this case
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // Check the answer only when the length of entered text equals the length of the correct answer
                 if (charSequence.length() == (String.valueOf(operand1 + operand2)).length()) {
                     checkAnswer();
-                    generateTask();
+                    generateTask(); // This generates a new task immediately
                 }
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
                 // Not needed in this case
             }
         });
-
 
         /*----------------------------------------------------------------------------------------------*/
 
@@ -174,14 +174,13 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
                 timeRemainingMillis = millisUntilFinished;
                 updateTimerUI();
             }
-
             @Override
             public void onFinish() {
                 handleTaskEnd();
             }
         }.start();
     }
-
+    /*----------------------------------------------------------------------------------------------*/
     private void updateTimerUI() {
         // Update the TextView to display the remaining time
         long secondsRemaining = timeRemainingMillis / 1000;
@@ -200,7 +199,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         startActivity(intent);
         finish(); // Optional: Finish the current activity to prevent going back to it
     }
-
+    /*----------------------------------------------------------------------------------------------*/
     public void skipTask(View view) {
         playSound();
         // Check if there are remaining skips
@@ -216,9 +215,10 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             Toast.makeText(this, "Skip limit reached", Toast.LENGTH_SHORT).show();
         }
     }
-
+    /*----------------------------------------------------------------------------------------------*/
     private void generateTask() {
-        // Generate a random addition task with two numbers between 1 and 10
+        // Implement your generic task generation logic here
+        // For example, you can generate a task with two numbers between 1 and 10
         Random random = new Random();
         operand1 = random.nextInt(10) + 1;
         operand2 = random.nextInt(10) + 1;
@@ -227,6 +227,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         String task = operand1 + " + " + operand2;
         taskTextView.setText(task);
     }
+
 
     private void checkAnswer() {
         // Check if the user's answer is correct
@@ -239,28 +240,41 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
                 userAnswer = Integer.parseInt(userAnswerString);
             } catch (NumberFormatException exception) {
                 // Handle the case where the input is not a valid integer
-                // You can display an error message or take appropriate action
                 System.err.println("Input is not a valid integer");
-                return; // Exit the method if the input is not valid
+                return;
             }
 
+            // Calculate the correct answer based on the current level (in this case, level 1)
+            int correctAnswer = operand1 + operand2;
+
             // Check the answer and update the score
-            if (userAnswer == (operand1 + operand2)) {
+            if (userAnswer == correctAnswer) {
                 score += 10;
             } else {
                 score -= 5;
             }
 
+            completedTasks++; // Increment completed tasks regardless of the correctness of the answer
+
             // Display the updated score
             scoreTextView.setText("Score: " + score);
 
-            // Generate a new task immediately
-            generateTask();
-
             // Clear the answer EditText
             answerEditText.setText("");
+
+            // Check if the completed task limit is reached
+          /*  if (completedTasks >= 8) {
+                startNextLevel();
+            } else {
+                // Generate a new task immediately if the completed task limit is not reached
+                generateTask();
+            }*/
         }
     }
+
+
+
+
 
     // Don't forget to stop the handler when the activity is destroyed
     @Override
@@ -297,7 +311,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Handle errors here
-                        Toast.makeText(MainActivity8.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                        /* Toast.makeText(MainActivity8.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();*/
                     }
                 });
 
