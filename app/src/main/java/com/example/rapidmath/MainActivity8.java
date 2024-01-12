@@ -59,8 +59,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
     private SoundPool soundPool;
     private int sound1, sound2;
     //private int sound1, sound2, sound3, sound4, sound5, sound6;
-    private static final String PREF_CURRENT_LEVEL = "current_level";
-    private int currentLevel=1;
+    private int currentLevel = 1;
 
 
 
@@ -125,7 +124,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         // Initialize the Handler
         handler = new Handler();
         score = 0;
-        generateTask();
+        generateTaskAndCheckAnswer();
 
         // Create a Runnable to generate the task every 60 seconds
 
@@ -138,8 +137,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // Check the answer only when the length of entered text equals the length of the correct answer
                 if (charSequence.length() == (String.valueOf(operand1 + operand2)).length()) {
-                    checkAnswer();
-                    generateTask(); // This generates a new task immediately
+                    generateTaskAndCheckAnswer(); // This generates a new task immediately
                 }
             }
             @Override
@@ -208,7 +206,7 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             remainingSkips--;
 
             // Generate a new task immediately
-            generateTask();
+            generateTaskAndCheckAnswer();
         } else {
             // Optionally, show a message or perform some action when the skip limit is reached
             // For example, you can display a Toast message
@@ -216,21 +214,81 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         }
     }
     /*----------------------------------------------------------------------------------------------*/
-    private void generateTask() {
-        // Implement your generic task generation logic here
-        // For example, you can generate a task with two numbers between 1 and 10
+    private void generateTaskAndCheckAnswer() {
+        // Generate tasks based on the current level
         Random random = new Random();
+
+        // Clear the answer EditText
+        answerEditText.setText("");
+
+        switch (currentLevel) {
+            case 1:
+                generateAdditionTask(random);
+                break;
+            case 2:
+                generateSubtractionTask(random);
+                break;
+            // Add more cases for additional levels
+            default:
+                // Handle the case where there is no specific task for the current level
+                break;
+        }
+    }
+
+    private void generateAdditionTask(Random random) {
+        operand1 = random.nextInt(10) + 1;
+        operand2 = random.nextInt(10) + 1;
+        taskTextView.setText(operand1 + " + " + operand2);
+        // Calculate the correct answer for addition
+        int correctAnswerAddition = operand1 + operand2;
+
+        // Check the answer and update the score
+        handleAnswer(correctAnswerAddition);
+    }
+
+    private void generateSubtractionTask(Random random) {
         operand1 = random.nextInt(10) + 1;
         operand2 = random.nextInt(10) + 1;
 
-        // Display the task in the TextView
-        String task = operand1 + " + " + operand2;
-        taskTextView.setText(task);
+        // Ensure operand1 is greater than operand2 to avoid negative results
+        if (operand1 < operand2) {
+            int temp = operand1;
+            operand1 = operand2;
+            operand2 = temp;
+        }
+
+        taskTextView.setText(operand1 + " - " + operand2);
+        // Calculate the correct answer for subtraction
+        int correctAnswerSubtraction = operand1 - operand2;
+
+        // Check the answer and update the score
+        handleAnswer(correctAnswerSubtraction);
     }
 
 
-    private void checkAnswer() {
-        // Check if the user's answer is correct
+
+    private void handleAnswer(int userAnswer, int correctAnswer) {
+        // Check the answer and update the score
+        if (userAnswer == correctAnswer) {
+            score += 10;
+        } else {
+            score -= 5;
+        }
+
+        completedTasks++; // Increment completed tasks regardless of the correctness of the answer
+
+        // Display the updated score
+        scoreTextView.setText("Score: " + score);
+
+        // Check if the completed task limit is reached
+        if (completedTasks >= 8) {
+            startNextLevel();
+        } else {
+            // Generate a new task immediately if the completed task limit is not reached
+            generateTaskAndCheckAnswer();
+        }
+    }
+    private void handleAnswer(int correctAnswer) {
         String userAnswerString = answerEditText.getText().toString().trim();
 
         if (!userAnswerString.isEmpty()) {
@@ -244,35 +302,21 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
                 return;
             }
 
-            // Calculate the correct answer based on the current level (in this case, level 1)
-            int correctAnswer = operand1 + operand2;
-
-            // Check the answer and update the score
-            if (userAnswer == correctAnswer) {
-                score += 10;
-            } else {
-                score -= 5;
-            }
-
-            completedTasks++; // Increment completed tasks regardless of the correctness of the answer
-
-            // Display the updated score
-            scoreTextView.setText("Score: " + score);
-
-            // Clear the answer EditText
-            answerEditText.setText("");
-
-            // Check if the completed task limit is reached
-          /*  if (completedTasks >= 8) {
-                startNextLevel();
-            } else {
-                // Generate a new task immediately if the completed task limit is not reached
-                generateTask();
-            }*/
+            // Pass both userAnswer and correctAnswer to the updated handleAnswer method
+            handleAnswer(userAnswer, correctAnswer);
         }
     }
 
 
+
+
+    private void startNextLevel() {
+        // Logic to start the next level
+        currentLevel++;
+        completedTasks = 0;
+
+        // Additional logic for starting a new level (if needed)
+    }
 
 
 
