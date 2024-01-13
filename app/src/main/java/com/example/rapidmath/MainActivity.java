@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         /*----------------------------------------------------------------------------------------------*/
         //Zene beillesztese
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.menumusictest1);
+        //Zene ismetlese
+        //mediaPlayer.setLooping(true);
         //Zene elinditasa
         mediaPlayer.start();
         /*----------------------------------------------------------------------------------------------*/
@@ -147,7 +149,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*public void playMusic(View v){
+    /*
+    REGI KOD!
+    public void playMusic(View v){
         if (mediaPlayer==null){
             mediaPlayer = MediaPlayer.create(this, R.raw.testsong);
         }
