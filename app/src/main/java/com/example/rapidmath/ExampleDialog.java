@@ -1,8 +1,10 @@
 package com.example.rapidmath;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
@@ -18,7 +20,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        
+
 
                     }
                 })
@@ -31,7 +33,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
         return builder.create();
     }
 
-   public interface ExampleDialogListener {
+    public interface ExampleDialogListener {
         void onYesClicked();
     }
 

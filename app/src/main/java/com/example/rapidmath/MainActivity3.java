@@ -9,12 +9,13 @@ import android.widget.ImageButton;
 
 public class MainActivity3 extends AppCompatActivity {
     private ImageButton backxbutton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        backxbutton= (ImageButton) findViewById(R.id.backx);
+        backxbutton = (ImageButton) findViewById(R.id.backx);
         backxbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,8 +25,9 @@ public class MainActivity3 extends AppCompatActivity {
         });
 
     }
-    public void openActivityMain(){
-        Intent backintent=new Intent(this,MainActivity.class);
+
+    public void openActivityMain() {
+        Intent backintent = new Intent(this, MainActivity.class);
         startActivity(backintent);
     }
 }

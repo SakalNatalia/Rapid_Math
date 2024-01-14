@@ -13,7 +13,7 @@
         android:background="@drawable/background1"
         android:scaleType="centerCrop"
         tools:context=".YourActivity">
-        <!-- Your layout content goes here -->
+
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
@@ -22,13 +22,13 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="46dp"
             android:layout_marginTop="130dp"
             android:layout_marginEnd="49dp"
             android:layout_marginBottom="540dp"
-            app:srcCompat="@drawable/rapidmmath"
             android:background="@android:color/transparent"
-            android:layout_centerHorizontal="true"/>
+            app:srcCompat="@drawable/rapidmmath" />
 
         <ImageButton
             android:id="@+id/play"
@@ -42,8 +42,8 @@
             android:layout_marginEnd="111dp"
             android:layout_marginBottom="356dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/start"
-            android:onClick="playSound"/>
+            android:onClick="playSound"
+            app:srcCompat="@drawable/start" />
 
         <ImageButton
             android:id="@+id/highscore"
@@ -52,12 +52,12 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="288dp"
             android:layout_marginBottom="7dp"
-            app:srcCompat="@drawable/highscores"
             android:background="@android:color/transparent"
-            android:layout_centerHorizontal="true"/>
+            app:srcCompat="@drawable/highscores" />
 
         <ImageButton
             android:id="@+id/help"
@@ -69,8 +69,8 @@
             android:layout_marginStart="288dp"
             android:layout_marginEnd="6dp"
             android:layout_marginBottom="7dp"
-            app:srcCompat="@drawable/help"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/help" />
 
         <ImageButton
             android:id="@+id/options"
@@ -84,8 +84,8 @@
             android:layout_marginEnd="111dp"
             android:layout_marginBottom="264dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/oop"
-            android:onClick="playSound"/>
+            android:onClick="playSound"
+            app:srcCompat="@drawable/oop" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

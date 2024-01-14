@@ -1,6 +1,7 @@
 package com.example.rapidmath;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -10,6 +11,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioAttributes;
@@ -20,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -27,23 +31,30 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.os.CountDownTimer;
+
 import java.util.Random;
 
-public class MainActivity8 extends AppCompatActivity implements ExampleDialog.ExampleDialogListener{
+public class MainActivity8 extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
     private TextView taskTextView;
     private EditText answerEditText;
     private TextView scoreTextView;
     private Handler handler;
     private Runnable taskGeneratorRunnable;
     private int score;
-    private int operand1;
-    private int operand2;
-    private long timeRemainingMillis; // Remaining time for each task in milliseconds
-    private static final long TASK_TIME_MILLIS = 60000; // Initial time for each task in milliseconds (60 seconds)
+
+    private int correctAnswer = 0;
+
+
+    private int operand1 = 0;
+    private int operand2 = 0;
+    private long timeRemainingMillis;
+    private static final long TASK_TIME_MILLIS = 60000; // 60 szekundum
     private TextView timerTextView;
     private CountDownTimer taskCountDownTimer;
     private int remainingSkips = 2;
@@ -57,10 +68,8 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
 
     //Hangeffektusok beillesztese a jatekba
     private SoundPool soundPool;
-    private int sound1, sound2;
-    //private int sound1, sound2, sound3, sound4, sound5, sound6;
+    private int sound1;
     private int currentLevel = 1;
-
 
 
     @Override
@@ -76,30 +85,22 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         /*----------------------------------------------------------------------------------------------*/
 
         //Hangeffektusok beillesztese
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .build();
 
             soundPool = new SoundPool.Builder()
-                    //.setMaxStreams(6)
                     .setMaxStreams(2)
                     .setAudioAttributes(audioAttributes)
                     .build();
-        }else{
-            //soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+        } else {
             soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         }
 
         //Hangeffektusok betoltese
         sound1 = soundPool.load(this, R.raw.clicksound, 1);
-        //sound2 = soundPool.load(this, R.raw.sound1, 1);
-        //sound3 = soundPool.load(this, R.raw.sound3, 1);
-        //sound4 = soundPool.load(this, R.raw.sound4, 1);
-        //sound5 = soundPool.load(this, R.raw.sound5, 1);
-        //sound6 = soundPool.load(this, R.raw.sound6, 1);
-
 
         /*----------------------------------------------------------------------------------------------*/
         fetchDataFromServer();
@@ -110,7 +111,6 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         pauseButton = findViewById(R.id.floatingActionButton);
         timerTextView = findViewById(R.id.timer);
 
-        // Initialize the timer
         timeRemainingMillis = TASK_TIME_MILLIS;
         startTaskCountdown();
 
@@ -121,28 +121,39 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             }
         });
 
-        // Initialize the Handler
         handler = new Handler();
         score = 0;
         generateTaskAndCheckAnswer();
 
-        // Create a Runnable to generate the task every 60 seconds
 
         answerEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // Not needed in this case
             }
+
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // Check the answer only when the length of entered text equals the length of the correct answer
-                if (charSequence.length() == (String.valueOf(operand1 + operand2)).length()) {
-                    generateTaskAndCheckAnswer(); // This generates a new task immediately
+
+                if (currentLevel == 1) {
+                    if (charSequence.length() == (String.valueOf(operand1 + operand2)).length()) {
+                        generateTaskAndCheckAnswer();
+                    }
+                }
+                if (currentLevel == 2) {
+                    if (charSequence.length() == (String.valueOf(operand1 - operand2)).length()) {
+                        generateTaskAndCheckAnswer();
+                    }
+                }
+
+                if (currentLevel == 3) {
+                    if (charSequence.length() == (String.valueOf(operand1 * operand2)).length()) {
+                        generateTaskAndCheckAnswer();
+                    }
                 }
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
-                // Not needed in this case
             }
         });
 
@@ -151,11 +162,10 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         //Pause gomb deklaralasa
         pauseButton = (ImageButton) findViewById(R.id.floatingActionButton);
 
-        //Jelenitse meg a dialog-ot, amellyel a MainActivity-re (fomenure) mehetunk at
+        //Jelenitse meg a Dialog-ot, amellyel a MainActivity-re (fomenure) mehetunk at
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //NEM HASZNALT -> openPauseActivity();
                 //Dialog megjelenitese
                 openDialog();
                 playSound();
@@ -172,85 +182,97 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
                 timeRemainingMillis = millisUntilFinished;
                 updateTimerUI();
             }
+
             @Override
             public void onFinish() {
                 handleTaskEnd();
             }
         }.start();
     }
+
     /*----------------------------------------------------------------------------------------------*/
     private void updateTimerUI() {
-        // Update the TextView to display the remaining time
         long secondsRemaining = timeRemainingMillis / 1000;
         timerTextView.setText("Remaining Time: " + secondsRemaining + "s");
     }
 
     private void handleTaskEnd() {
-        // Check if taskCountDownTimer is not null before canceling
         if (taskCountDownTimer != null) {
             taskCountDownTimer.cancel();
-            taskCountDownTimer = null; // Set to null to indicate the timer is stopped
+            taskCountDownTimer = null;
         }
 
 
         Intent intent = new Intent(MainActivity8.this, LevelFailed.class);
         startActivity(intent);
-        finish(); // Optional: Finish the current activity to prevent going back to it
+        finish(); //Activity befejezese
     }
+
     /*----------------------------------------------------------------------------------------------*/
     public void skipTask(View view) {
         playSound();
-        // Check if there are remaining skips
-        if (remainingSkips > 0) {
-            // Decrement the remaining skips
-            remainingSkips--;
 
-            // Generate a new task immediately
+        if (remainingSkips > 0) {
+            remainingSkips--;
             generateTaskAndCheckAnswer();
         } else {
-            // Optionally, show a message or perform some action when the skip limit is reached
-            // For example, you can display a Toast message
-            Toast.makeText(this, "Skip limit reached", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Skip limit reached!", Toast.LENGTH_SHORT).show();
         }
     }
+
     /*----------------------------------------------------------------------------------------------*/
     private void generateTaskAndCheckAnswer() {
-        // Generate tasks based on the current level
-        Random random = new Random();
 
-        // Clear the answer EditText
-        answerEditText.setText("");
+        Random random = new Random();
+        //Log.d("answerEdit", "level: " + currentLevel);
+        //Log.d("answerEdit", "completedTasks: " + completedTasks);
 
         switch (currentLevel) {
             case 1:
+            default:
                 generateAdditionTask(random);
                 break;
             case 2:
                 generateSubtractionTask(random);
                 break;
-            // Add more cases for additional levels
-            default:
-                // Handle the case where there is no specific task for the current level
+            case 3:
+                generateMultiplicationTask(random);
                 break;
         }
     }
 
     private void generateAdditionTask(Random random) {
+        correctAnswer = operand1 + operand2;
+
         operand1 = random.nextInt(10) + 1;
         operand2 = random.nextInt(10) + 1;
         taskTextView.setText(operand1 + " + " + operand2);
-        // Calculate the correct answer for addition
-        int correctAnswerAddition = operand1 + operand2;
 
-        // Check the answer and update the score
-        handleAnswer(correctAnswerAddition);
+        String userAnswerString = answerEditText.getText().toString().trim();
+        answerEditText.setText("");
+
+        if (!TextUtils.isEmpty(userAnswerString)) {
+            int userAnswer;
+
+            try {
+                userAnswer = Integer.parseInt(userAnswerString);
+            } catch (NumberFormatException exception) {
+                System.err.println("Input is not a valid integer");
+                return;
+            }
+            //Log.d("answerEdit", "userInt: " + userAnswer);
+            handleAnswer(userAnswer, correctAnswer);
+            correctAnswer = 0;
+        }
+
+
     }
 
     private void generateSubtractionTask(Random random) {
+        correctAnswer = operand1 - operand2;
         operand1 = random.nextInt(10) + 1;
         operand2 = random.nextInt(10) + 1;
 
-        // Ensure operand1 is greater than operand2 to avoid negative results
         if (operand1 < operand2) {
             int temp = operand1;
             operand1 = operand2;
@@ -258,38 +280,104 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         }
 
         taskTextView.setText(operand1 + " - " + operand2);
-        // Calculate the correct answer for subtraction
-        int correctAnswerSubtraction = operand1 - operand2;
+        String userAnswerString = answerEditText.getText().toString().trim();
+        answerEditText.setText("");
 
-        // Check the answer and update the score
-        handleAnswer(correctAnswerSubtraction);
+        if (!TextUtils.isEmpty(userAnswerString)) {
+            int userAnswer;
+
+            try {
+                userAnswer = Integer.parseInt(userAnswerString);
+            } catch (NumberFormatException exception) {
+                System.err.println("Input is not a valid integer");
+                return;
+            }
+            handleAnswer(userAnswer, correctAnswer);
+            correctAnswer = 0;
+        }
+    }
+
+    private void generateMultiplicationTask(Random random) {
+        // Helyes-e a valasz
+        correctAnswer = operand1 * operand2;
+
+        operand1 = random.nextInt(10) + 1;
+        operand2 = random.nextInt(10) + 1;
+        taskTextView.setText(operand1 + " * " + operand2);
+
+
+        String userAnswerString = answerEditText.getText().toString().trim();
+        answerEditText.setText("");
+//Log.d("answerEdit", "userString: " + userAnswerString);
+//Log.d("answerEdit", "correctAnswerAddition: " + correctAnswer);
+        //scoreTextView.setText("Score: " + score);
+        if (!TextUtils.isEmpty(userAnswerString)) {
+            int userAnswer;
+
+            try {
+                userAnswer = Integer.parseInt(userAnswerString);
+            } catch (NumberFormatException exception) {
+                System.err.println("Input is not a valid integer");
+                return;
+            }
+            //Log.d("answerEdit", "userInt: " + userAnswer);
+            handleAnswer(userAnswer, correctAnswer);
+            //correctAnswer = 0;
+        }
     }
 
 
+    private void generateSubtractionTask2(Random random) {
+        operand1 = random.nextInt(10) + 1;
+        operand2 = random.nextInt(10) + 1;
+
+        // Hogy ne legyen negativ szam
+        if (operand1 < operand2) {
+            int temp = operand1;
+            operand1 = operand2;
+            operand2 = temp;
+        }
+
+        taskTextView.setText(operand1 + " - " + operand2);
+        // Valasz ellenorzese
+        int correctAnswerSubtraction = operand1 - operand2;
+        Log.d("correctAnswerSubtraction", "value:" + correctAnswerSubtraction);
+        Toast.makeText(MainActivity8.this, "correctAnswerSubtraction:" + correctAnswerSubtraction, Toast.LENGTH_SHORT).show();
+
+        //Valasz
+        handleCorrectAnswer(correctAnswerSubtraction);
+    }
+
 
     private void handleAnswer(int userAnswer, int correctAnswer) {
-        // Check the answer and update the score
+        // Helyes / helytelen valasz
         if (userAnswer == correctAnswer) {
             score += 10;
         } else {
             score -= 5;
         }
+//correctAnswer = 0;
+        completedTasks++; // Elvegzett feladatok
 
-        completedTasks++; // Increment completed tasks regardless of the correctness of the answer
-
-        // Display the updated score
+        // Score kimutatasa
         scoreTextView.setText("Score: " + score);
 
-        // Check if the completed task limit is reached
-        if (completedTasks >= 8) {
+        //Szintek szama
+        //if (completedTasks >= 8) {
+        if (completedTasks % 4 == 0) {
             startNextLevel();
-        } else {
-            // Generate a new task immediately if the completed task limit is not reached
-            generateTaskAndCheckAnswer();
         }
+        //generateTaskAndCheckAnswer();
+//        } else {
+//            generateTaskAndCheckAnswer();
+//        }
+
+        generateTaskAndCheckAnswer();
     }
-    private void handleAnswer(int correctAnswer) {
+
+    private void handleCorrectAnswer(int correctAnswer) {
         String userAnswerString = answerEditText.getText().toString().trim();
+        timerTextView.setText("Score: " + userAnswerString);
 
         if (!userAnswerString.isEmpty()) {
             int userAnswer;
@@ -297,30 +385,28 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
             try {
                 userAnswer = Integer.parseInt(userAnswerString);
             } catch (NumberFormatException exception) {
-                // Handle the case where the input is not a valid integer
                 System.err.println("Input is not a valid integer");
                 return;
             }
 
-            // Pass both userAnswer and correctAnswer to the updated handleAnswer method
+            //answerEditText.setText("");
             handleAnswer(userAnswer, correctAnswer);
         }
     }
 
 
-
-
     private void startNextLevel() {
-        // Logic to start the next level
+        //Kovetkezo szint
         currentLevel++;
         completedTasks = 0;
 
-        // Additional logic for starting a new level (if needed)
+        if (currentLevel > 3) {
+            currentLevel = 1;
+        }
+
     }
 
 
-
-    // Don't forget to stop the handler when the activity is destroyed
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -328,6 +414,10 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         //Allitsa le a hangeffektust akkor, amikor kilepunk a jatekszintbol
         soundPool.release();
         soundPool = null;
+        //Allitsa le az idozitot, amikor kilepunk a jatekszintbol
+        if (taskCountDownTimer != null) {
+            taskCountDownTimer.cancel();
+        }
     }
 
 
@@ -354,7 +444,6 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Handle errors here
                         /* Toast.makeText(MainActivity8.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();*/
                     }
                 });
@@ -365,14 +454,8 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
 
     /*----------------------------------------------------------------------------------------------*/
 
-    /*//NEM HASZNALT!
-    public void openPauseActivity(){
-        Intent pauseintent=new Intent(this,Pause.class);
-        startActivity(pauseintent);
-    }*/
-
-    //Jelenitse meg a dialog-ot
-    public void openDialog(){
+    //Jelenitse meg a Dialog-ot
+    public void openDialog() {
         ExampleDialog dialog = new ExampleDialog();
         dialog.show(getSupportFragmentManager(), "example dialog");
 
@@ -380,8 +463,8 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
 
     //Ha Yes-t nyomunk a Dialog-ban, akkor dobjon at minket a fomenure
     @Override
-    public void onYesClicked(){
-        Intent pauseintent=new Intent(this,MainActivity.class);
+    public void onYesClicked() {
+        Intent pauseintent = new Intent(this, MainActivity.class);
         startActivity(pauseintent);
         playSound();
 
@@ -395,6 +478,10 @@ public class MainActivity8 extends AppCompatActivity implements ExampleDialog.Ex
         super.onPause();
         mediaPlayer.stop();
         mediaPlayer.release();
+        //Allitsa le az idozitot, amikor kilepunk a jatekszintbol
+        if (taskCountDownTimer != null) {
+            taskCountDownTimer.cancel();
+        }
 
     }
 

@@ -23,12 +23,12 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="31dp"
             android:layout_marginTop="116dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="185dp"
-            app:srcCompat="@drawable/ctangle"
-            android:layout_centerHorizontal="true"/>
+            app:srcCompat="@drawable/ctangle" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -37,11 +37,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="102dp"
             android:layout_marginEnd="103dp"
             android:layout_marginBottom="566dp"
-            app:srcCompat="@drawable/elcomback"
-            android:layout_centerHorizontal="true"/>
+            app:srcCompat="@drawable/elcomback" />
 
         <ImageView
             android:id="@+id/imageView11"
@@ -115,11 +115,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="121dp"
             android:layout_marginEnd="124dp"
             android:layout_marginBottom="232dp"
-            app:srcCompat="@drawable/roup7"
-            android:layout_centerHorizontal="true"/>
+            app:srcCompat="@drawable/roup7" />
 
         <ImageView
             android:id="@+id/imageView15"
@@ -127,10 +127,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="118dp"
             android:layout_marginBottom="210dp"
-            app:srcCompat="@drawable/onhaveanaccount"
-            android:layout_centerHorizontal="true"/>
+            app:srcCompat="@drawable/onhaveanaccount" />
 
         <ImageButton
             android:id="@+id/backx"

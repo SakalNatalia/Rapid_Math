@@ -35,11 +35,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="145dp"
             android:layout_marginEnd="127dp"
             android:layout_marginBottom="588dp"
-            app:srcCompat="@drawable/yprofile"
-            android:layout_centerHorizontal="true"/>
+            app:srcCompat="@drawable/yprofile" />
 
         <ImageButton
             android:id="@+id/imageButton6"
@@ -86,12 +86,12 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="80dp"
             android:layout_marginEnd="68dp"
             android:layout_marginBottom="398dp"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:layout_centerHorizontal="true"/>
+            android:inputType="textEmailAddress" />
 
         <ImageView
             android:id="@+id/imageView19"
@@ -111,11 +111,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="71dp"
             android:layout_marginBottom="313dp"
             android:ems="10"
-            android:inputType="textPassword"
-            android:layout_centerHorizontal="true"/>
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/editTextTextPassword3"

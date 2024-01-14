@@ -16,14 +16,14 @@ public class LevelFailed extends AppCompatActivity {
 
     private ImageButton backbutton;
 
+    private ImageButton menubutton;
+
     //Zene hozzaadasa a jatekhoz
     MediaPlayer mediaPlayer;
 
     //Hangeffektusok beillesztese a jatekba
     private SoundPool soundPool;
-    private int sound1, sound2;
-    //private int sound1, sound2, sound3, sound4, sound5, sound6;
-
+    private int sound1;
 
 
     @Override
@@ -41,7 +41,7 @@ public class LevelFailed extends AppCompatActivity {
         /*----------------------------------------------------------------------------------------------*/
 
         //Hangeffektusok beillesztese
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -52,43 +52,52 @@ public class LevelFailed extends AppCompatActivity {
                     .setMaxStreams(2)
                     .setAudioAttributes(audioAttributes)
                     .build();
-        }else{
-            //soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+        } else {
             soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         }
 
         //Hangeffektusok betoltese
         sound1 = soundPool.load(this, R.raw.clicksound, 1);
-        //sound2 = soundPool.load(this, R.raw.sound1, 1);
-        //sound3 = soundPool.load(this, R.raw.sound3, 1);
-        //sound4 = soundPool.load(this, R.raw.sound4, 1);
-        //sound5 = soundPool.load(this, R.raw.sound5, 1);
-        //sound6 = soundPool.load(this, R.raw.sound6, 1);
-
 
         /*----------------------------------------------------------------------------------------------*/
 
 
-        backbutton= findViewById(R.id.tryagain);
+        backbutton = findViewById(R.id.tryagain);
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //hangeffektus lejatszasa
+                //Hangeffektus lejatszasa
                 playSound();
                 openActivity8();
             }
         });
 
+        menubutton = findViewById(R.id.SubmitYourScoreButton);
+        menubutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Hangeffektus lejatszasa
+                playSound();
+                openActivity1();
+            }
+        });
+
     }
 
-    public void openActivity8(){
-        Intent optionsintent=new Intent(this,MainActivity8.class);
+    public void openActivity8() {
+        Intent optionsintent = new Intent(this, MainActivity8.class);
         startActivity(optionsintent);
+    }
+
+
+    public void openActivity1() {
+        Intent optionsintent2 = new Intent(this, MainActivity.class);
+        startActivity(optionsintent2);
     }
 
     /*----------------------------------------------------------------------------------------------*/
 
-    //Zene leallitasa amikor kilepunk a MainActivity-bol (Main Menu-bol)
+    //Zene leallitasa amikor kilepunk
     @Override
     protected void onPause() {
         super.onPause();
@@ -97,27 +106,7 @@ public class LevelFailed extends AppCompatActivity {
 
     }
 
-    /*
-    REGI KOD!
-    public void playMusic(View v){
-        if (mediaPlayer==null){
-            mediaPlayer = MediaPlayer.create(this, R.raw.testsong);
-        }
-
-        mediaPlayer.start();
-    }*/
-
     /*----------------------------------------------------------------------------------------------*/
-
-    //Hangeffektus elinditasa
-    /*public void playSound(View v){
-        int id = v.getId();
-        if (id == R.id.play) {
-            soundPool.play(sound1, 1, 1, 0, 0, 1);
-        } else if (id == R.id.options) {
-            soundPool.play(sound2, 1, 1, 0, 0, 1);
-        }
-    }*/
 
     public void playSound() {
         soundPool.play(sound1, 1, 1, 0, 0, 1);
@@ -125,7 +114,7 @@ public class LevelFailed extends AppCompatActivity {
 
     //Hangeffektusok leallitasa
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         soundPool.release();
         soundPool = null;

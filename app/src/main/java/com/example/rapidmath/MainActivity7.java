@@ -17,8 +17,7 @@ public class MainActivity7 extends AppCompatActivity {
     private SoundPool soundPool;
 
     //Hangeffektusok beillesztese a jatekba
-    private int sound1, sound2;
-    //private int sound1, sound2, sound3, sound4, sound5, sound6;
+    private int sound1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +39,11 @@ public class MainActivity7 extends AppCompatActivity {
                     .setAudioAttributes(audioAttributes)
                     .build();
         }else{
-            //soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
             soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         }
 
         //Hangeffektusok betoltese
         sound1 = soundPool.load(this, R.raw.clicksound, 1);
-        //sound2 = soundPool.load(this, R.raw.sound1, 1);
-        //sound3 = soundPool.load(this, R.raw.sound3, 1);
-        //sound4 = soundPool.load(this, R.raw.sound4, 1);
-        //sound5 = soundPool.load(this, R.raw.sound5, 1);
-        //sound6 = soundPool.load(this, R.raw.sound6, 1);
 
 
         /*----------------------------------------------------------------------------------------------*/

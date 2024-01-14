@@ -19,7 +19,6 @@ public class LevelCompleted extends AppCompatActivity {
         nextbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Start MainActivity for the next level
                     Intent intent = new Intent(LevelCompleted.this, MainActivity8.class);
                     startActivity(intent);
                 }

@@ -17,8 +17,7 @@ public class MainActivity5 extends AppCompatActivity {
     private SoundPool soundPool;
 
     //Hangeffektusok beillesztese a jatekba
-    private int sound1, sound2;
-    //private int sound1, sound2, sound3, sound4, sound5, sound6;
+    private int sound1;
 
 
     @Override
@@ -29,7 +28,7 @@ public class MainActivity5 extends AppCompatActivity {
         /*----------------------------------------------------------------------------------------------*/
 
         //Hangeffektusok beillesztese
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -40,23 +39,17 @@ public class MainActivity5 extends AppCompatActivity {
                     .setMaxStreams(2)
                     .setAudioAttributes(audioAttributes)
                     .build();
-        }else{
-            //soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 0);
+        } else {
             soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         }
 
         //Hangeffektusok betoltese
         sound1 = soundPool.load(this, R.raw.clicksound, 1);
-        //sound2 = soundPool.load(this, R.raw.sound1, 1);
-        //sound3 = soundPool.load(this, R.raw.sound3, 1);
-        //sound4 = soundPool.load(this, R.raw.sound4, 1);
-        //sound5 = soundPool.load(this, R.raw.sound5, 1);
-        //sound6 = soundPool.load(this, R.raw.sound6, 1);
 
 
         /*----------------------------------------------------------------------------------------------*/
 
-        xbutton= (ImageButton) findViewById(R.id.xbutton);
+        xbutton = (ImageButton) findViewById(R.id.xbutton);
         xbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,8 +58,9 @@ public class MainActivity5 extends AppCompatActivity {
             }
         });
     }
-    public void openActivityMain2(){
-        Intent backintent=new Intent(this,MainActivity.class);
+
+    public void openActivityMain2() {
+        Intent backintent = new Intent(this, MainActivity.class);
         startActivity(backintent);
     }
 
@@ -77,7 +71,7 @@ public class MainActivity5 extends AppCompatActivity {
 
     //Hangeffektusok leallitasa
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         soundPool.release();
         soundPool = null;
